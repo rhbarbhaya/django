@@ -9,8 +9,7 @@
 <ul>
     {% for todolist in object_list %}
     <li>
-        <div
-            role="button"
+        <div role="button"
             onclick="location.href='{% url "list" todolist.id %}'">
             {{ todolist.title }}
         </div>
@@ -21,9 +20,7 @@
 </ul>
 
 <p>
-    <input
-        value="Add a new list"
-        type="button"
+    <input value="Add a new list" type="button"
         onclick="location.href='{% url "list-add" %}'" />
 </p>
 

@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from todo_app import views
 
 urlpatterns = [
     path(
@@ -18,6 +18,11 @@ urlpatterns = [
         name="list-add"
     ),
     path(
+        "list/<int:pk>/delete/", 
+        views.ListDelete.as_view(), 
+        name="list-delete"
+    ),
+    path(
         "list/<int:list_id>/item/add/",
         views.ItemCreate.as_view(),
         name="item-add",
@@ -26,5 +31,10 @@ urlpatterns = [
         "list/<int:list_id>/item/<int:pk>/",
         views.ItemUpdate.as_view(),
         name="item-update",
+    ),
+    path(
+        "list/<int:list_id>/item/<int:pk>/delete/",
+        views.ItemDelete.as_view(),
+        name="item-delete",
     ),
 ]
